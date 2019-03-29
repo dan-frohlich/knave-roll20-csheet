@@ -1,0 +1,88 @@
+<html class="gr__chrispwolf_com"><head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- This is just a simple css rule that turns the whole body white on black. -->
+    <style type="text/css">
+        body{
+        /*	background-color: #111;
+            color:white;
+        }*/
+    </style>
+    
+    <!-- PHP starts here. Everything above is standard html. -->
+    <!-- The remainder of the file is just html with php "echo" statements, which just take the variables above and print them into the html-->
+    </head><body data-gr-c-s-loaded="true"><div class="container" style="max-width:800px; margin-top: 80px;"> 
+        <h1>A Knave</h1>
+        <b>Name: </b><span name="attr_character_name" />
+        <hr style="height:0; border-bottom:1px solid black;">
+        <div class="row">
+            <div class="col-md-2 col-sm-4">
+                STR:
+                <input type="number" name="attr_StrBon" value="@{StrDef}/20" disabled="true" />
+                <input type="number" name="attr_StrDef" value="10" />	
+            </div>
+            <div class="col-md-2 col-sm-4">
+                DEX:
+                <input type="number" name="attr_DexBon" value="@{DexDef}/20" disabled="true" />
+                <input type="number" name="attr_DexDef" value="10" />	
+            </div>
+            <div class="col-md-2 col-sm-4">
+                CON:
+                <input type="number" name="attr_ConBon" value="@{ConDef}/20" disabled="true" />
+                <input type="number" name="attr_ConDef" value="10" />	
+            </div>
+            <div class="col-md-2 col-sm-4">
+                INT:
+                <input type="number" name="attr_IntBon" value="@{IntDef}/20" disabled="true" />
+                <input type="number" name="attr_IntDef" value="10" />	
+            </div>
+            <div class="col-md-2 col-sm-4">
+                WIS:
+                <input type="number" name="attr_WisBon" value="@{WisDef}/20" disabled="true" />
+                <input type="number" name="attr_WisDef" value="10" />	
+            </div>
+            <div class="col-md-2 col-sm-4">
+                CHA:
+                <input type="number" name="attr_ChaBon" value="@{ChaDef}/20" disabled="true" />
+                <input type="number" name="attr_ChaDef" value="10" />	
+            </div>
+        </div>
+        <div class="row" style="margin-top: 40px;">
+            <div class="col-sm-6">
+                <h2>
+                    Getting Hurt
+                </h2>
+                <p>
+                    You have 8 hit points.
+                    When unarmored, your Armor is 1:11.
+                </p>
+                <h2 style="margin-top: 30px;">
+                    Equipment
+                </h2>
+                <p>
+                    You have 13 inventory slots. You can choose from the following items to fill them. Unless otherwise noted, each item takes up one slot. 
+                </p>
+                <p>
+                    1 Day's Rations<br>1 Day's Rations<br>Brigandine: A13 Q3, 2 Slots<br>Shield: Armor+1 Q1<br>Light Melee Weapon: 1d6, Q3<br>Mirror<br>Pulleys<br>Air Bladder<br>Twine<br>			</p>
+            </div>
+            <div class="col-sm-6">
+                <h2>Traits</h2>
+                Physique: Willowy<br>
+                Face: Narrow<br>
+                Skin: Whip Scar<br>
+                Hair: Limp<br>
+                Clothing: Frayed<br>
+                Virtue: Stoic<br>
+                Vice: Vengeful<br>
+                Alignment: Chaos			<h2 style="margin-top: 30px;">History</h2>
+                <p>
+                    You used to be a butcher but then you were disowned.
+                </p>
+                <p>
+                    Now you're a damnable grave robber.
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer class="container" style="text-align:center; font-size: 11px; padding:15px;">
+        <a style="text-decoration: underline; color:black!important;" target="_blank" href="https://www.drivethrurpg.com/product/250888/Knave?affiliate_id=392207">Knave</a> and its awesome random tables are by Ben Milton AKA Questing Beast and you should check out his <a style="text-decoration: underline; color:black!important;" href="https://www.patreon.com/questingbeast/" target="_blank">Patreon.</a>
+    </footer></body></html>
