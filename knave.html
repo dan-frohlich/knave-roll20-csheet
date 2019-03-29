@@ -42,8 +42,8 @@
         <span>Current:&nbsp;<input type="number" name="attr_HP" value="1"/></span>
         <span>Max:&nbsp;<input type="number" name="attr_HP_max" value="1"/></span>
         <span class="sheet-top-break">Attacks</span>
-        <span><button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Melee Attack striking AD:[[1d20 + @{StrengthMod}]] (AC=19-AD)' name='roll_MeleeAttack'></button>&nbsp;Melee</span>
-        <span><button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Ranged Attack striking AD:[[1d20 + @{WisdomMod}]] (AC=19-AD)' name='roll_RangedAttack'></button>&nbsp;Ranged</span>
+        <span><button class="sheet-att-bon" type='roll' value='&{template:default} {{name= @{character_name} Attacks!}} {{Combat=Melee}}{{to hit=[[1d20+@{StrengthMod}]]}}' name='roll_MeleeAttack'></button>&nbsp;Melee</span>
+        <span><button class="sheet-att-bon" type='roll' value='&{template:default} {{name= @{character_name} Attacks!}} {{Combat=Ranged}}{{to hit=[[1d20+@{WisdomMod}]]}}' name='roll_RangedAttack'></button>&nbsp;Ranged</span>
     </div>
     <div class="sheet-armor">
         Armor Defense
@@ -59,27 +59,27 @@
     <div class="sheet-attacks">
         Attacks & Weapons
         <span class="sheet-attack-slot">
-              <button type='roll' value='@{character_name}&#39;s @{attack_1_desc} inflicts [[@{attack_1_damage}]] damage' name='roll_Attack_1'></button>
+              <button type='roll' value='&{template:default} {{name= @{character_name} Strikes!}} {{Weapon=@{attack_1_desc}}} {{Damage=[[@{attack_1_damage}]]}}' name='roll_Attack_1'></button>
               <input class="sheet-attack-descr" type="text" name="attr_attack_1_desc" value="[small melee weapon]"/>
               <input class="sheet-attack-damage" type="text" name="attr_attack_1_damage" value="1d6"/>
           </span>
         <span class="sheet-attack-slot">
-              <button type='roll' value='@{character_name}&#39;s @{attack_2_desc} inflicts [[@{attack_2_damage}]] damage' name='roll_Attack_2'></button>
+              <button type='roll' value='&{template:default} {{name= @{character_name} Strikes!}} {{Weapon=@{attack_2_desc}}} {{Damage=[[@{attack_2_damage}]]}}' name='roll_Attack_2'></button>
               <input class="sheet-attack-descr" type="text" name="attr_attack_2_desc" value="[small ranged weapon]"/>
               <input class="sheet-attack-damage" type="text" name="attr_attack_2_damage" value="1d4"/>
           </span>
         <span class="sheet-attack-slot">
-              <button type='roll' value='@{character_name}&#39;s @{attack_3_desc} inflicts [[@{attack_3_damage}]] damage' name='roll_Attack_3'></button>
+              <button type='roll' value='&{template:default} {{name= @{character_name} Strikes!}} {{Weapon=@{attack_3_desc}}} {{Damage=[[@{attack_3_damage}]]}}' name='roll_Attack_3'></button>
               <input class="sheet-attack-descr" type="text" name="attr_attack_3_desc" value="punch"/>
               <input class="sheet-attack-damage" type="text" name="attr_attack_3_damage" value="1d2"/>
           </span>
         <span class="sheet-attack-slot">
-              <button type='roll' value='@{character_name}&#39;s @{attack_4_desc} inflicts [[@{attack_4_damage}]] damage' name='roll_Attack_4'></button>
+              <button type='roll' value='&{template:default} {{name= @{character_name} Strikes!}} {{Weapon=@{attack_4_desc}}} {{Damage=[[@{attack_4_damage}]]}}' name='roll_Attack_4'></button>
               <input class="sheet-attack-descr" type="text" name="attr_attack_4_desc" value="improvised melee weapon"/>
               <input class="sheet-attack-damage" type="text" name="attr_attack_4_damage" value="1d6"/>
           </span>
         <span class="sheet-attack-slot">
-              <button type='roll' value='@{character_name}&#39;s @{attack_5_desc} inflicts [[@{attack_5_damage}]] damage' name='roll_Attack_5'></button>
+              <button type='roll' value='&{template:default} {{name= @{character_name} Strikes!}} {{Weapon=@{attack_5_desc}}} {{Damage=[[@{attack_5_damage}]]}}' name='roll_Attack_5'></button>
               <input class="sheet-attack-descr" type="text" name="attr_attack_5_desc" value="improvised ranged weapon"/>
               <input class="sheet-attack-damage" type="text" name="attr_attack_5_damage" value="1d4"/>
           </span>
