@@ -1,88 +1,179 @@
-<html class="gr__chrispwolf_com"><head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- This is just a simple css rule that turns the whole body white on black. -->
-    <style type="text/css">
-        body{
-        /*	background-color: #111;
-            color:white;
-        }*/
-    </style>
-    
-    <!-- PHP starts here. Everything above is standard html. -->
-    <!-- The remainder of the file is just html with php "echo" statements, which just take the variables above and print them into the html-->
-    </head><body data-gr-c-s-loaded="true"><div class="container" style="max-width:800px; margin-top: 80px;"> 
-        <h1>A Knave</h1>
-        <b>Name: </b><span name="attr_character_name" />
-        <hr style="height:0; border-bottom:1px solid black;">
-        <div class="row">
-            <div class="col-md-2 col-sm-4">
-                STR:
-                <input type="number" name="attr_StrBon" value="@{StrDef}/20" disabled="true" />
-                <input type="number" name="attr_StrDef" value="10" />	
-            </div>
-            <div class="col-md-2 col-sm-4">
-                DEX:
-                <input type="number" name="attr_DexBon" value="@{DexDef}/20" disabled="true" />
-                <input type="number" name="attr_DexDef" value="10" />	
-            </div>
-            <div class="col-md-2 col-sm-4">
-                CON:
-                <input type="number" name="attr_ConBon" value="@{ConDef}/20" disabled="true" />
-                <input type="number" name="attr_ConDef" value="10" />	
-            </div>
-            <div class="col-md-2 col-sm-4">
-                INT:
-                <input type="number" name="attr_IntBon" value="@{IntDef}/20" disabled="true" />
-                <input type="number" name="attr_IntDef" value="10" />	
-            </div>
-            <div class="col-md-2 col-sm-4">
-                WIS:
-                <input type="number" name="attr_WisBon" value="@{WisDef}/20" disabled="true" />
-                <input type="number" name="attr_WisDef" value="10" />	
-            </div>
-            <div class="col-md-2 col-sm-4">
-                CHA:
-                <input type="number" name="attr_ChaBon" value="@{ChaDef}/20" disabled="true" />
-                <input type="number" name="attr_ChaDef" value="10" />	
-            </div>
+<div class="sheet-wrapper">
+        <div class="sheet-heading">
+            <span>Name:&nbsp;<input type="text" name="attr_character_name" value="A Knave"/></span>
         </div>
-        <div class="row" style="margin-top: 40px;">
-            <div class="col-sm-6">
-                <h2>
-                    Getting Hurt
-                </h2>
-                <p>
-                    You have 8 hit points.
-                    When unarmored, your Armor is 1:11.
-                </p>
-                <h2 style="margin-top: 30px;">
-                    Equipment
-                </h2>
-                <p>
-                    You have 13 inventory slots. You can choose from the following items to fill them. Unless otherwise noted, each item takes up one slot. 
-                </p>
-                <p>
-                    1 Day's Rations<br>1 Day's Rations<br>Brigandine: A13 Q3, 2 Slots<br>Shield: Armor+1 Q1<br>Light Melee Weapon: 1d6, Q3<br>Mirror<br>Pulleys<br>Air Bladder<br>Twine<br>			</p>
-            </div>
-            <div class="col-sm-6">
-                <h2>Traits</h2>
-                Physique: Willowy<br>
-                Face: Narrow<br>
-                Skin: Whip Scar<br>
-                Hair: Limp<br>
-                Clothing: Frayed<br>
-                Virtue: Stoic<br>
-                Vice: Vengeful<br>
-                Alignment: Chaos			<h2 style="margin-top: 30px;">History</h2>
-                <p>
-                    You used to be a butcher but then you were disowned.
-                </p>
-                <p>
-                    Now you're a damnable grave robber.
-                </p>
-            </div>
+        <div class="sheet-exp">
+            <span class="sheet-exp-1"><span >Level:</span><input type="number" name="attr_Level" value="1"/></span>
+            <span><span>Exp:</span><input class="sheet-wide" type="number" name="attr_Exp" value="0"/></span>
+            <span><span>Next Lvl Exp:</span><input class="sheet-wide" type="number" name="attr_NextLEvelExp" value="@{Level}*1000" disabled="true"/></span>
         </div>
-    </div>
-    <footer class="container" style="text-align:center; font-size: 11px; padding:15px;">
-        <a style="text-decoration: underline; color:black!important;" target="_blank" href="https://www.drivethrurpg.com/product/250888/Knave?affiliate_id=392207">Knave</a> and its awesome random tables are by Ben Milton AKA Questing Beast and you should check out his <a style="text-decoration: underline; color:black!important;" href="https://www.patreon.com/questingbeast/" target="_blank">Patreon.</a>
-    </footer></body></html>
+        <div class="sheet-str">
+          <span class="sheet-att-name">Str:&nbsp;<input type="number" name="attr_Strength" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_StrengthMod" value="@{Strength}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Strength Check: [[1d20 + @{StrengthMod}]]' name='roll_StrCheck'/>
+        </div>
+        <div class="sheet-dex">
+          <span class="sheet-att-name">Dex:&nbsp;<input type="number" name="attr_Dexterity" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_DexterityMod" value="@{Dexterity}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Dexterity Check: [[1d20 + @{DexterityMod}]]' name='roll_DexCheck'/>
+        </div>
+        <div class="sheet-int">
+          <span class="sheet-att-name">Int:&nbsp;<input type="number" name="attr_Intelligence" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_IntelligenceMod" value="@{Intelligence}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Intelligence Check: [[1d20 + @{IntelligenceMod}]]' name='roll_IntCheck'/>
+        </div>
+        <div class="sheet-wis">
+          <span class="sheet-att-name">Wis:&nbsp;<input type="number" name="attr_Wisdom" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_WisdomMod" value="@{Wisdom}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Wisdom Check: [[1d20 + @{WisdomMod}]]' name='roll_WisCheck'/>
+        </div>
+        <div class="sheet-con">
+          <span class="sheet-att-name">Con:&nbsp;<input type="number" name="attr_Constitution" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_ConstitutionMod" value="@{Constitution}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Constitution Check: [[1d20 + @{ConstitutionMod}]]' name='roll_ConCheck'/>
+        </div>
+        <div class="sheet-cha">
+          <span class="sheet-att-name">Cha:&nbsp;<input type="number" name="attr_Charisma" value="10"/></span>
+          <span class="sheet-att-bon">+<input type="number" name="attr_CharismaMod" value="@{Charisma}-10" disabled="true"/></span>
+          <button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Charisma Check: [[1d20 + @{CharismaMod}]]' name='roll_ChaCheck'/>
+        </div>
+        <div class="sheet-hits">
+            <span >Hit Points</span>
+            <span >Current:&nbsp;<input type="number" name="attr_HP" value="1"/></span>
+            <span >Max:&nbsp;<input type="number" name="attr_HP_max" value="1"/></span>
+            <span class="sheet-top-break">Attacks</span>
+            <span ><button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Melee Attack: [[1d20 + @{StrengthMod}]]' name='roll_MeleeAttack'></button>&nbsp;Melee</span>
+            <span><button class="sheet-att-bon" type='roll' value='@{character_name} rolled a Ranged Attack: [[1d20 + @{WisdomMod}]]' name='roll_RangedAttack'></button>&nbsp;Ranged</span>
+        </div>
+        <div class="sheet-armor">
+            Armor Defense
+            <span >Total: &nbsp;<input type="number" name="attr_Armor" value="@{ArmorBase}+@{HasShield}+@{HasHelm}" disabled="true"/></span>
+            <span >+<input type="number" name="attr_ArmorMod" value="@{Armor}-10" disabled="true"/></span>
+            <span class="sheet-top-break">Base: &nbsp;<input type="number" name="attr_ArmorBase" value="10"/></span>
+            <span><input type='checkbox' name='attr_HasHelm' value='1' />&nbsp;Helm</span>
+            <span><input type='checkbox' name='attr_HasShield' value='1' />&nbsp;Shield</span>
+            <button type='roll' value='@{character_name} rolled an Armor Check: [[1d20 + @{ArmorMod}]]' name='roll_ADCheck'/>      
+        </div>
+        <div class="sheet-logo">
+            Logo
+            <img src="https://img.itch.zone/aW1hZ2UvMjk4MDQ4LzE0NTY5MTEucG5n/315x250%23c/KWZRPG.png"/>
+        </div>
+        <div class="sheet-attacks">
+            Attacks & Weapons
+      <span class="sheet-attack-slot">
+              <button type='roll' value='@{character_name}&#39;s @{attack_1_desc} inflicts [[@{attack_1_damage}]] damage' name='roll_Attack_1'></button>
+              <input class="sheet-attack-descr" type="text" name="attr_attack_1_desc" value="[small melee weapon]"/>
+              <input class="sheet-attack-damage" type="text" name="attr_attack_1_damage" value="1d6"/>
+          </span>
+          <span class="sheet-attack-slot">
+              <button type='roll' value='@{character_name}&#39;s @{attack_2_desc} inflicts [[@{attack_2_damage}]] damage' name='roll_Attack_2'></button>
+              <input class="sheet-attack-descr" type="text" name="attr_attack_2_desc" value="[small ranged weapon]"/>
+              <input class="sheet-attack-damage" type="text" name="attr_attack_2_damage" value="1d4"/>
+          </span>
+          <span class="sheet-attack-slot">
+              <button type='roll' value='@{character_name}&#39;s @{attack_3_desc} inflicts [[@{attack_3_damage}]] damage' name='roll_Attack_3'></button>
+              <input class="sheet-attack-descr" type="text" name="attr_attack_3_desc" value="punch"/>
+              <input class="sheet-attack-damage" type="text" name="attr_attack_3_damage" value="1d2"/>
+          </span>
+          <span class="sheet-attack-slot">
+              <button type='roll' value='@{character_name}&#39;s @{attack_4_desc} inflicts [[@{attack_4_damage}]] damage' name='roll_Attack_4'></button>
+              <input class="sheet-attack-descr" type="text" name="attr_attack_4_desc" value="improvised melee weapon"/>
+              <input class="sheet-attack-damage" type="text" name="attr_attack_4_damage" value="1d6"/>
+          </span>
+          <span class="sheet-attack-slot">
+              <button type='roll' value='@{character_name}&#39;s @{attack_5_desc} inflicts [[@{attack_5_damage}]] damage' name='roll_Attack_5'></button>
+              <input class="sheet-attack-descr" type="text" name="attr_attack_5_desc" value="improvised ranged weapon"/>
+              <input class="sheet-attack-damage" type="text" name="attr_attack_5_damage" value="1d4"/>
+          </span>
+        
+        </div>
+        <div class="sheet-notes">
+            Notes / Background
+            <textarea name="attr_notes"></textarea>
+        </div>
+        <div class="sheet-slots">
+            <span class="sheet-title">Equipment ( <input type="number" name="attr_Slots" value="@{Constitution}" disabled="true"/> Slots)</span>
+      
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_1_desc" value=""/>
+          <input type="number" name="attr_item_1_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_2_desc" value=""/>
+          <input type="number" name="attr_item_2_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_3_desc" value=""/>
+          <input type="number" name="attr_item_3_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_4_desc" value=""/>
+          <input type="number" name="attr_item_4_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_5_desc" value=""/>
+          <input type="number" name="attr_item_5_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_6_desc" value=""/>
+          <input type="number" name="attr_item_6_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_7_desc" value=""/>
+          <input type="number" name="attr_item_7_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_8_desc" value=""/>
+          <input type="number" name="attr_item_8_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_9_desc" value=""/>
+          <input type="number" name="attr_item_9_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_10_desc" value=""/>
+          <input type="number" name="attr_item_10_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_11_desc" value=""/>
+          <input type="number" name="attr_item_11_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_12_desc" value=""/>
+          <input type="number" name="attr_item_12_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_13_desc" value=""/>
+          <input type="number" name="attr_item_13_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_14_desc" value=""/>
+          <input type="number" name="attr_item_14_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_15_desc" value=""/>
+          <input type="number" name="attr_item_15_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_16_desc" value=""/>
+          <input type="number" name="attr_item_16_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_17_desc" value=""/>
+          <input type="number" name="attr_item_17_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_18_desc" value=""/>
+          <input type="number" name="attr_item_18_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_19_desc" value=""/>
+          <input type="number" name="attr_item_19_quality" value="0"/>
+      </span>
+      <span class="sheet-slot">
+          <input type="text" name="attr_item_20_desc" value=""/>
+          <input type="number" name="attr_item_20_quality" value="0"/>
+      </span>
+      
+        </div>
+      </div>
